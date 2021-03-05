@@ -1,11 +1,24 @@
 <template>
-  <div class="card" style="width: 18rem">
-    <div class="username"> mama.mia</div>
-    <img class="card-img-top" src="https://princeza.hr/wp-content/uploads/2020/05/8-2.png" alt="Card image cap" />
+  <div class="card">
+    <div class="card-header">
+      <div class="user-info">
+        <a>mama.mia</a>
+      </div>
+    </div>
     <div class="card-body">
-      <p class="card-text" style="background-color: #bff7e4;">
-        <i class="far fa-heart" style="float:left;"></i>
-        <i class="far fa-paper-plane" style="float:left; margin-left: 10px;"></i>
+      <img
+        class="card-img-top"
+        src="https://princeza.hr/wp-content/uploads/2020/05/8-2.png"
+        alt="Card image cap"
+      />
+    </div>
+    <div class="card-footer">
+      <p class="card-text" style="background-color: #bff7e4">
+        <i class="far fa-heart" style="float: left"></i>
+        <i
+          class="far fa-paper-plane"
+          style="float: left; margin-left: 10px"
+        ></i>
       </p>
     </div>
   </div>
@@ -13,46 +26,42 @@
 
 
 <style scoped>
-html,body{
-    background-color: beige;
-}
 
-.card-body{
-    background-color: beige;
-    border-radius: 10px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+.card-body {
+  padding: 0;
 }
-.card{
-    margin-bottom: 30px;
-    border: 1px solid rgb(169, 169, 138);
-    border-radius: 11px;
-}
-img.card-img-top{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-.username{
+.card-header {
   background-color: beige;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  
+}
+.card-footer {
+  background-color: beige;
+}
+.card {
+  background-color: beige;
+  margin-bottom: 30px;
+  border: 1px solid rgb(169, 169, 138);
+  border-radius: 4px;
+}
+img.card-img-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.username {
+  height: 50px;
 }
 
 @media screen and (max-width: 767px) {
-    .card-body{
-        border-radius: 0px;
-    }
-    .card{
-        border-radius: 0px;
-    }
-    img.card-img-top{
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-    }
-    
+  .card-body {
+    border-radius: 0px;
+  }
+  .card {
+    border-radius: 0px;
+  }
+  img.card-img-top {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
 }
-
 </style>
 
 
