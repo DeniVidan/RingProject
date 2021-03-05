@@ -1,16 +1,17 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3">
-        <AddImage/>
+      <div class="col-md-2">
+        
       </div>
       <div class="col-md-6">
+        <AddImage/>
         <ImageCard style="width: 100%" />
         <ImageCard style="width: 100%" />
         <ImageCard style="width: 100%" />
         <ImageCard style="width: 100%" />
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="wrap">
           <div class="title">Liked posts</div>
           

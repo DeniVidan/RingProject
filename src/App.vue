@@ -245,5 +245,8 @@ a.router-link-exact-active {
   #app {
     height: 160vh;
   }
+  .container-fluid {
+    padding: 0;
+  }
 }
 </style>

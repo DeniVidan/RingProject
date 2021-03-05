@@ -5,14 +5,14 @@
         <div class="row">
 
         <file-pond
-      name="test"
-      ref="pond"
-      label-idle="Drop files here..."
-      v-bind:allow-multiple="true"
-      accepted-file-types="image/jpeg, image/png"
-      v-bind:files="myFiles"
-      v-on:init="handleFilePondInit"
-    />
+          name="test"
+          ref="pond"
+          label-idle="Drop files here..."
+          v-bind:allow-multiple="true"
+          accepted-file-types="image/jpeg, image/png"
+          v-bind:files="myFiles"
+          v-on:init="handleFilePondInit"
+        />
 
         </div>
     </div>
@@ -57,12 +57,12 @@ export default {
 };
 </script>
 
-
 <style>
 .filepond--drip {
   opacity: 1 !important;
   background-color: #31312c;
-  border-radius: 5px;
+  border-radius: 15px;
+  
 }
 .filepond--drop-label {
   color: goldenrod;
@@ -72,8 +72,11 @@ export default {
   display: none;
 }
 label{
-  cursor: pointer;
+  cursor: pointer !important;
 }
+</style>
+<style scoped>
+
 .material-icons {
     padding: 10px 10px;
   font-size: 30px;
