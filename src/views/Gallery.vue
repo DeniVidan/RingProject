@@ -2,27 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3">
-        <div class="wrap">
-          <div class="title">Add picture</div>
-          <div class="content">
-            
-              <input
-                type="file"
-                id="img"
-                name="img"
-                accept="image/*"
-                hidden="hidden"
-              />
-              <button type="button" class="custom_button">
-                <span class="material-icons" style="color: #31312c">
-                  add_photo_alternate
-                </span>
-              </button>
-              <span class="custom_text">No file choosen</span>
-            
-            
-          </div>
-        </div>
+        <AddImage/>
       </div>
       <div class="col-md-6">
         <ImageCard style="width: 100%" />
@@ -33,6 +13,7 @@
       <div class="col-md-3">
         <div class="wrap">
           <div class="title">Liked posts</div>
+          
           <div class="content">
             <div class="liked_images">
               <img class="liked_image" src="@/assets/prsten_proba.png" alt="" />
@@ -100,7 +81,7 @@
       <div class="row1">
         <div class="col-sm-6" style="display: flex; justify-content: flex-start;">
           <button type="button" class="custom_button">
-            <span class="material-icons" style="color: goldenrod;">
+            <span class="material-icons" style="color: goldenrod; padding-left: 20px;">
               add_photo_alternate
             </span>
           </button>
@@ -109,7 +90,7 @@
 
         <div class="col-sm-6" style="display: flex; justify-content: flex-end;">
           <button type="button" class="custom_button">
-            <span class="material-icons" style="color: goldenrod;"> favorite </span>
+            <span class="material-icons" style="color: goldenrod; padding-right: 20px;"> favorite </span>
           </button>
         </div>
       </div>
@@ -121,6 +102,7 @@
 <script>
 // @ is an alias to /src
 import ImageCard from "@/components/ImageCard.vue";
+import AddImage from "@/components/AddImage.vue";
 
 export default {
   name: "Gallery",
@@ -130,12 +112,13 @@ export default {
       }
   },
   methods: {
-      myfunction(){
-          
-      }
+      close(){
+          this.$emit('close');
+      },
   },
   components: {
     ImageCard,
+    AddImage
   },
 };
 </script>
@@ -154,6 +137,7 @@ body {
 }
 .row {
   margin: 0px 250px;
+  transition: all 0.1s ease-in-out;
 }
 .row1 {
   width: 100%;
@@ -193,13 +177,15 @@ body {
 }
 .custom_button:hover {
 }
+
+
 .material-icons {
   font-size: 30px;
   vertical-align: middle;
   transition: all 0.2s ease-in-out;
 }
 .material-icons:hover {
-  font-size: 32px;
+
 }
 
 .custom_text {

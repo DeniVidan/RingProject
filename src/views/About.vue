@@ -72,6 +72,7 @@
   font-family: "Quicksand", sans-serif;
   color: rgb(72, 72, 72);
   z-index: 0cd;
+  transition: all 0.2s ease-in-out;
 }
 .row1{
   display: flex;

@@ -109,6 +109,7 @@
         </div>
       </div>
     </nav>
+  
 
     <router-view />
   </div>
@@ -125,7 +126,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: beige;
-  z-index: -5;
+  z-index: -2;
   height: 100vh;
 }
 
@@ -149,17 +150,24 @@
   width: 1920px;
   z-index: -1;
   opacity: 60%;
+  transition: all 0.2s ease-in-out;
 }
 
 .container-fluid {
   padding: 15px 0px 15px 0px;
 }
+img.navbar-brand{
+  align-items: center;
+}
 
 .navbar-brand {
   margin-right: 50px;
   margin-left: 70px;
+  transition: 1s;
 }
-
+img.navbar-brand:hover {
+  transform: rotate(360deg);
+}
 a.router-link-exact-active {
   color: goldenrod !important; /* mediumorchid */ /* goldenrod */
   border: 1px solid rgba(0, 0, 0, 0);

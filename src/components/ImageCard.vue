@@ -1,5 +1,6 @@
 <template>
   <div class="card" style="width: 18rem">
+    <div class="username"> mama.mia</div>
     <img class="card-img-top" src="https://princeza.hr/wp-content/uploads/2020/05/8-2.png" alt="Card image cap" />
     <div class="card-body">
       <p class="card-text" style="background-color: #bff7e4;">
@@ -31,7 +32,12 @@ img.card-img-top{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-
+.username{
+  background-color: beige;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  
+}
 
 @media screen and (max-width: 767px) {
     .card-body{
