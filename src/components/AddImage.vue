@@ -13,12 +13,6 @@
       v-bind:files="myFiles"
       v-on:init="handleFilePondInit"
     />
-        <button type="button" class="custom_button">
-            <span class="material-icons" style="color: #31312c">
-            add_photo_alternate
-            </span>
-        </button>
-        <span class="custom_text" hidden>No file choosen</span>
 
         </div>
     </div>
@@ -26,7 +20,7 @@
 </template>
 
 
-<script>
+<script scoped>
 import vueFilePond from "vue-filepond";
 
 // Import FilePond styles
@@ -68,9 +62,17 @@ export default {
 .filepond--drip {
   opacity: 1 !important;
   background-color: #31312c;
+  border-radius: 5px;
 }
 .filepond--drop-label {
   color: goldenrod;
+  cursor: pointer;
+}
+.filepond--credits{
+  display: none;
+}
+label{
+  cursor: pointer;
 }
 .material-icons {
     padding: 10px 10px;
@@ -103,6 +105,7 @@ export default {
     justify-content: flex-start;
   padding: 10px 0px;
   border-top: 1px solid #f6c0c7;
+  cursor: pointer !important;
 }
 
 

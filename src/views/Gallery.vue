@@ -85,7 +85,6 @@
               add_photo_alternate
             </span>
           </button>
-          <span class="custom_text" hidden>No file choosen</span>
         </div>
 
         <div class="col-sm-6" style="display: flex; justify-content: flex-end;">
@@ -99,7 +98,7 @@
 </template>
 
 
-<script>
+<script scoped>
 // @ is an alias to /src
 import ImageCard from "@/components/ImageCard.vue";
 import AddImage from "@/components/AddImage.vue";

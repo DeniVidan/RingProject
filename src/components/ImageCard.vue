@@ -1,8 +1,14 @@
 <template>
   <div class="card">
     <div class="card-header">
-      <div class="user-info">
-        <a>mama.mia</a>
+      <div class="row red">
+        <div class="user-info col-md-6">
+          <img style="border-radius: 18px;" width="35px" src="https://eventex.co/wp-content/uploads/2020/08/matt-johnson.jpg" alt="">
+          <a style="padding-left: 20px;">mama.mia</a>
+        </div>
+        <div class="options col-md-6">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
       </div>
     </div>
     <div class="card-body">
@@ -26,15 +32,40 @@
 
 
 <style scoped>
-
+.col-md-6{
+  align-items: center;
+  vertical-align: middle;
+}
 .card-body {
-  padding: 0;
+  padding: 0px;
 }
 .card-header {
-  background-color: beige;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
 }
 .card-footer {
-  background-color: beige;
+  background-color: rgb(255, 255, 255);
+}
+.option{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0px;
+}
+.fa-ellipsis-h{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  vertical-align: middle;
+}
+.user-info{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  vertical-align: middle;
+}
+.red{
+  width:100%;
 }
 .card {
   background-color: beige;
