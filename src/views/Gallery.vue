@@ -82,7 +82,7 @@
       <div class="row1">
         <div class="col-sm-6" style="display: flex; justify-content: flex-start;">
           <button type="button" class="custom_button">
-            <span class="material-icons" style="color: goldenrod; padding-left: 20px;">
+            <span class="material-icons" style="padding-left: 20px;">
               add_photo_alternate
             </span>
           </button>
@@ -90,7 +90,7 @@
 
         <div class="col-sm-6" style="display: flex; justify-content: flex-end;">
           <button type="button" class="custom_button">
-            <span class="material-icons" style="color: goldenrod; padding-right: 20px;"> favorite </span>
+            <span class="material-icons" style="padding-right: 20px;"> favorite </span>
           </button>
         </div>
       </div>
@@ -170,7 +170,7 @@ body {
 }
 
 .custom_button {
-  padding: 7px 8px;
+  padding: 0px 8px 0px 8px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -180,12 +180,13 @@ body {
 
 
 .material-icons {
-  font-size: 30px;
+  color: goldenrod;
+  font-size: 40px;
   vertical-align: middle;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 .material-icons:hover {
-
+ color: #5a9bc5;
 }
 
 .custom_text {
