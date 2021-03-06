@@ -1,13 +1,13 @@
 <template>
   <div class="wrap">
-    <div class="title">Add picture</div>
+    <div class="title"></div>
     <div class="content">
         <div class="row">
 
         <file-pond
           name="test"
           ref="pond"
-          label-idle="Drop files here..."
+          label-idle="Add photo / Drop files here..."
           v-bind:allow-multiple="true"
           accepted-file-types="image/jpeg, image/png"
           v-bind:files="myFiles"
@@ -107,7 +107,6 @@ label{
     flex-direction: column;
     justify-content: flex-start;
   padding: 10px 0px;
-  border-top: 1px solid #f6c0c7;
   cursor: pointer !important;
 }
 

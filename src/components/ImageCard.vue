@@ -32,9 +32,10 @@
 
 
 <style scoped>
-.col-md-6{
+.col-sm-6{
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   vertical-align: middle;
 }
