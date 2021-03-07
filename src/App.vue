@@ -98,7 +98,7 @@
               <router-link
                 class="nav-link col"
                 class-active="active"
-                to="/aaaa"
+                to="/login"
                 exact
                 ><!--<img src="@/assets/log-in.svg" alt="">--><i
                   class="fas fa-sign-in-alt"
@@ -128,6 +128,7 @@
   background-color: beige;
   z-index: -2;
   height: 100vh;
+
 }
 
 #nav {
@@ -143,6 +144,7 @@
   color: rgb(0, 0, 0);
   margin-right: 20px;
   margin-left: 20px;
+  width: auto;
 }
 .nav_background {
   position: absolute;

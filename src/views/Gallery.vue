@@ -143,7 +143,6 @@ body {
   width: 100%;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 }
 .liked_images {
   display: flex;
