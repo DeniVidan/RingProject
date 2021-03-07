@@ -19,7 +19,7 @@
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"
-                  ><i class="fas fa-user"></i
+                  ><i class="fas fa-phone">&nbsp; / &nbsp;<i class="fas fa-envelope"></i></i
                 ></span>
               </div>
               <input
@@ -27,8 +27,9 @@
                 name=""
                 class="form-control input_user"
                 value=""
-                placeholder="username"
+                placeholder="fontele"
               />
+            
             </div>
             <div class="input-group mb-2">
               <div class="input-group-append">
