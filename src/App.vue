@@ -244,9 +244,6 @@ a.router-link-exact-active {
   hr {
     margin-top: 15px;
   }
-  #app {
-    height: 160vh;
-  }
   .container-fluid {
     padding: 0;
   }
