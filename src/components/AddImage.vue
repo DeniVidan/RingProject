@@ -52,6 +52,10 @@ export default {
       myFiles: []
     }
   },
+  methods: {
+    handleFilePondInit(){
+    }
+  },
   props: {
   },
 };

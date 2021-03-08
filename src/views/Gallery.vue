@@ -179,7 +179,7 @@ body {
 
 
 .material-icons {
-  color: goldenrod;
+  color: #31312c;
   font-size: 40px;
   vertical-align: middle;
   transition: all 0.1s ease-in-out;
@@ -196,7 +196,7 @@ body {
 footer {
   color: white;
   display: none;
-  background-color: #31312c;
+  background-color: beige;
   height: 64px;
 }
 

@@ -45,7 +45,7 @@
               <router-link
                 class="nav-link col"
                 class-active="active"
-                to="/aaa"
+                to="/measure"
                 exact
                 ><!--<img src="@/assets/ruler_icon.png" alt="" height="24px">--><i
                   class="fas fa-ruler"
