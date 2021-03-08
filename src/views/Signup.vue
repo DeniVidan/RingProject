@@ -122,63 +122,43 @@
     
 <div class="container-fluid" id="grad1">
     <div class="row justify-content-center mt-0" style="background: beige;">
-        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2 wrap">
+        <div class="col-11 col-sm-9 col-md-8 col-lg-6 text-center p-0 mt-3 mb-2 wrap">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3" style="background: beige;">
-                <h2>Sign Up Your User Account</h2>
-                <p>Fill all form field to go to next step</p>
+                <h2>Sign Up</h2>
                 <div class="row">
                     <div class="col-md-12 mx-0">
                         <form id="msform">
                             <!-- progressbar -->
-                            <ul id="progressbar">
-                                <li class="active" id="account"><strong>Account</strong></li>
-                                <li id="personal"><strong>Personal</strong></li>
-                                <li id="payment"><strong>Payment</strong></li>
-                                <li id="confirm"><strong>Finish</strong></li>
+                                <ul id="progressbar">
+                                <li class="active fas fa-lock" id="account"><strong>Account</strong></li>
+                                <li id="verification" class="fas fa-fingerprint"><strong>Verification</strong></li>
+                                <li id="confirm" class="fas fa-check-circle"><strong>Finish</strong></li>
                             </ul> <!-- fieldsets -->
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title">Account Information</h2> <input type="email" name="email" placeholder="Email Id" /> <input type="text" name="uname" placeholder="UserName" /> <input type="password" name="pwd" placeholder="Password" /> <input type="password" name="cpwd" placeholder="Confirm Password" />
-                                </div> <input type="button" name="next" class="next action-button" value="Next Step" />
+                                    <h2 class="fs-title">Account Information</h2>
+                                    <input v-model="email" type="email" placeholder="Email *" required/>
+                                    <input v-model="username" type="text" placeholder="User Name *" required/>
+                                    <input v-model="password" type="password" placeholder="Password *" required/>
+                                    <input id="cpsw" v-model="cpassword" type="password" placeholder="Confirm Password *"/>
+                                    <p style="color: red;  margin-left: 0px; font-size: 14px;" v-if="passwordNotMatching">Passwords do not match</p>
+                                    <input v-model="phone" type="phone" placeholder="Phone *" style="margin-top: 20px !important;" required/>
+                                    <p style="color: red; float: right;">* field is required</p>
+                                </div>
+                                <input type="button" name="next" class="next action-button" :disabled="!fieldRequired()" :class="{disabled: !fieldRequired()}" value="Next Step" />
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title">Personal Information</h2> <input type="text" name="fname" placeholder="First Name" /> <input type="text" name="lname" placeholder="Last Name" /> <input type="text" name="phno" placeholder="Contact No." /> <input type="text" name="phno_2" placeholder="Alternate Contact No." />
-                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                                    <h2 class="fs-title">Verification</h2>
+                                    <p>Verification number is sent to your phone</p>
+                                    <h3><b>{{phone}}</b></h3><br>
+                                    <input type="text" v-model="verification" placeholder="Verification number" />
+                                    <input type="button" @click="verifyNumber()" name="verify" class="action-button" value="Verify">
+                                </div>
+                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                 <input type="button" :disabled="!verified" :class="{disabled: !verified}" name="next" class="next action-button" value="Next Step" />
                             </fieldset>
-                            <fieldset>
-                                <div class="form-card">
-                                    <h2 class="fs-title">Payment Information</h2>
-                                    <div class="radio-group">
-                                        <div class='radio' data-value="credit"><img src="https://i.imgur.com/XzOzVHZ.jpg" width="200px" height="100px"></div>
-                                        <div class='radio' data-value="paypal"><img src="https://i.imgur.com/jXjwZlj.jpg" width="200px" height="100px"></div> <br>
-                                    </div> <label class="pay">Card Holder Name*</label> <input type="text" name="holdername" placeholder="" />
-                                    <div class="row">
-                                        <div class="col-9"> <label class="pay">Card Number*</label> <input type="text" name="cardno" placeholder="" /> </div>
-                                        <div class="col-3"> <label class="pay">CVC*</label> <input type="password" name="cvcpwd" placeholder="***" /> </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-3"> <label class="pay">Expiry Date*</label> </div>
-                                        <div class="col-9"> <select class="list-dt" id="month" name="expmonth">
-                                                <option selected>Month</option>
-                                                <option>January</option>
-                                                <option>February</option>
-                                                <option>March</option>
-                                                <option>April</option>
-                                                <option>May</option>
-                                                <option>June</option>
-                                                <option>July</option>
-                                                <option>August</option>
-                                                <option>September</option>
-                                                <option>October</option>
-                                                <option>November</option>
-                                                <option>December</option>
-                                            </select> <select class="list-dt" id="year" name="expyear">
-                                                <option selected>Year</option>
-                                            </select> </div>
-                                    </div>
-                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="make_payment" class="next action-button" value="Confirm" />
-                            </fieldset>
+                            
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title text-center">Success !</h2> <br><br>
@@ -203,20 +183,127 @@
 
 
 <script scoped>
-// @ is an alias to /src
 
 
 export default {
   name: "Signup",
+  data(){
+    return {
+      email: "",
+      username: "",
+      password: "",
+      cpassword: "",
+      passwordNotMatching: false,
+      phone: null,
+      verification: "",
+      verified: false,
+    }
+  },
   methods : {
-    
+    verifyNumber(){
+      //this.verified = true;
+    },
+    fieldRequired(){
+      let button = document.getElementById("cpsw");
+      if(this.email != null && this.email != "" && this.phone != null && this.phone != "" && this.username != null && this.username != "" && this.password != null && this.password != ""){
+        if(this.password != this.cpassword && this.password != "" && this.cpassword != ""){
+          this.passwordNotMatching = true;
+          button.style = "border-bottom: 2px solid red;"
+          console.log(button);
+          return false;
+        }else{
+          button.style = "border-bottom: 1px solid #ccc;"
+          this.passwordNotMatching = false;
+        }
+        return this.cpassword == ""?false:true
+      }
+        return false
+    }
   },
   components: {},
 };
+
+var $ = require('jquery')
+// @ is an alias to /src
+$(document).ready(function(){
+
+  var current_fs, next_fs, previous_fs; //fieldsets
+  var opacity;
+
+  $(".next").click(function(){
+
+  current_fs = $(this).parent();
+  next_fs = $(this).parent().next();
+
+  //Add Class Active
+  $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+  //show the next fieldset
+  next_fs.show();
+  //hide the current fieldset with style
+  current_fs.animate({opacity: 0}, {
+  step: function(now) {
+  // for making fielset appear animation
+  opacity = 1 - now;
+
+  current_fs.css({
+  'display': 'none',
+  'position': 'relative'
+  });
+  next_fs.css({'opacity': opacity});
+  },
+  duration: 600
+  });
+  });
+
+  $(".previous").click(function(){
+
+  current_fs = $(this).parent();
+  previous_fs = $(this).parent().prev();
+
+  //Remove class active
+  $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+  //show the previous fieldset
+  previous_fs.show();
+
+  //hide the current fieldset with style
+  current_fs.animate({opacity: 0}, {
+  step: function(now) {
+  // for making fielset appear animation
+  opacity = 1 - now;
+
+  current_fs.css({
+  'display': 'none',
+  'position': 'relative'
+  });
+  previous_fs.css({'opacity': opacity});
+  },
+  duration: 600
+  });
+  });
+
+  $('.radio-group .radio').click(function(){
+  $(this).parent().find('.radio').removeClass('selected');
+  $(this).addClass('selected');
+  });
+
+  $(".submit").click(function(){
+  return false;
+  })
+
+});
 </script>
 
 
 <style scoped>
+.disabled {
+  background: #31312c63 !important;
+}
+h2, h3, p {
+  margin-left: 10px;
+}
+
 .d-flex{
     overflow: hidden;
 
@@ -385,10 +472,10 @@ html {
     background: beige;
     border: 0 none;
 
-    padding: 20px 40px 30px 40px;
+    padding: 10px 20px 5px 20px;
     box-sizing: border-box;
     width: 94%;
-    margin: 0 3% 20px 3%;
+    margin: 0 1% 20px 1%;
     position: relative
 }
 
@@ -422,11 +509,15 @@ html {
     margin-top: 2px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: Arial, Helvetica, sans-serif;
     color: #2C3E50;
     font-size: 16px;
     letter-spacing: 1px;
     background-color: beige;
+}
+
+#cpsw {
+  margin-bottom: 1px !important;
 }
 
 #msform input:focus,
@@ -441,12 +532,12 @@ html {
 }
 
 #msform .action-button {
-    width: 100px;
+    width: 130px;
     background: #31312c;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.878);
     border: 0 none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px
@@ -458,12 +549,12 @@ html {
 }
 
 #msform .action-button-previous {
-    width: 100px;
+    width: 130px;
     background: #616161;
     font-weight: bold;
     color: white;
     border: 0 none;
-    border-radius: 0px;
+    border-radius: 20px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px
@@ -513,19 +604,19 @@ select.list-dt:focus {
 
 #progressbar li {
     list-style-type: none;
-    font-size: 12px;
-    width: 25%;
+    font-size: 16px;
+    width: 33.3%;
     float: left;
     position: relative
 }
 
-#progressbar #account:before {
+/* #progressbar #account:before {
     font-family: FontAwesome;
     content: "\f023"
-}
+} */
 
-#progressbar #personal:before {
-    font-family: FontAwesome;
+/* #progressbar #personal:before {
+    font-family: FontAwsome;
     content: "\f007"
 }
 
@@ -537,14 +628,14 @@ select.list-dt:focus {
 #progressbar #confirm:before {
     font-family: FontAwesome;
     content: "\f00c"
-}
+} */
 
 #progressbar li:before {
     width: 50px;
     height: 50px;
     line-height: 45px;
     display: block;
-    font-size: 18px;
+    font-size: 20px;
     color: #ffffff;
     background: lightgray;
     border-radius: 50%;
