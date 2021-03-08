@@ -38,10 +38,10 @@
       <div class="row1">
 
         <div class="col-md-5" style="justify-content:center; vertical-align:center;">
-          If you want to <a>get started</a> press this button
+          If you want to get started ...
         </div>
         <div class="col-md-5" style="justify-content:center;">
-          <a class="button" href="">
+          <a class="button" href="/login">
             PRESS THIS BUTTON
           </a>
         </div>
@@ -88,7 +88,7 @@
   padding-top: 25px;
 }
 .col-md-5{
-  text-align: center;
+  align-self: center;
 }
 .title {
   font-size: 32px;

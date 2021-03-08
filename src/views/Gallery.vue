@@ -222,7 +222,7 @@ footer {
     display: none;
   }
   .col-md-6 {
-    padding: 0px;
+    padding: 0px 0px 50px;
   }
 }
 @media screen and (max-width: 576px) {

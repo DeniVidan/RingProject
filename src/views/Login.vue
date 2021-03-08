@@ -27,7 +27,7 @@
                 name=""
                 class="form-control input_user"
                 value=""
-                placeholder="fontele"
+                placeholder="Phone / E-mail"
               />
             
             </div>
@@ -40,7 +40,7 @@
                 name=""
                 class="form-control input_pass"
                 value=""
-                placeholder="password"
+                placeholder="Password"
               />
             </div>
             <div class="form-group">
@@ -180,7 +180,7 @@ html {
 }
 .form-control{
     background-color: transparent;
-    border: 1px dashed #31312c52;
+    border: 1px solid goldenrod;
 }
 
 

@@ -2,11 +2,12 @@
   <div class="card">
     <div class="card-header">
       <div class="row">
-        <div class="user-info col-sm-6">
+        <div class="user-info col-md-6">
           <img style="border-radius: 18px;" width="35px" src="https://eventex.co/wp-content/uploads/2020/08/matt-johnson.jpg" alt="">
           <a style="padding-left: 20px;">mama.mia</a>
         </div>
-        <div class="options col-sm-6">
+
+        <div class="options col-md-6" style="align-self: center;">
           <i class="fas fa-ellipsis-h"></i>
         </div>
       </div>
@@ -19,7 +20,7 @@
       />
     </div>
     <div class="card-footer">
-      <p class="card-text" style="background-color: #bff7e4; font-size: 22px">
+      <p class="card-text" style="background-color: transparent; font-size: 22px">
         <i class="far fa-heart" style="float: left"></i>
         <i
           class="far fa-paper-plane"
@@ -32,13 +33,7 @@
 
 
 <style scoped>
-.col-sm-6{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  vertical-align: middle;
-}
+
 .card-body {
   padding: 0px;
 }
@@ -62,6 +57,7 @@
   flex-direction: row;
   justify-content: flex-end;
   vertical-align: middle;
+  font-size: 18px;
 }
 .user-info{
   display: flex;
@@ -69,10 +65,11 @@
   justify-content: flex-start;
   align-items: center;
   vertical-align: middle;
+  width: 0px;
 }
 .row{
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
   width:100%;
 }
