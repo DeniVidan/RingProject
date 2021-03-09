@@ -150,8 +150,8 @@
   position: absolute;
   margin-top: -242px;
   width: 1920px;
+  opacity: 0.6;
   z-index: -1;
-  opacity: 60%;
   transition: all 0.2s ease-in-out;
 }
 
