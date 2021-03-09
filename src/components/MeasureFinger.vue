@@ -1,5 +1,6 @@
 <template>
   <div class="flex-container">
+      <img class="image" src="" alt="">
     <div class="a"></div>
     <div class="a"></div>
     <div class="a"></div>
@@ -25,18 +26,26 @@ export default {
 <style scoped>
 
 .flex-container {
-  position: fixed;
   margin: 0px 0px !important;
-  background-image: url("https://www.teahub.io/photos/full/28-280182_wiki-full-hd-pc-photos-free-download-pic.jpg");
   min-height: 100vh;
-  min-width: 200vh;
-  opacity: 50%;
+  min-width: 100%;
+
 }
+.image{
+  margin: 0 !important;
+  background-image: url("https://www.teahub.io/photos/full/28-280182_wiki-full-hd-pc-photos-free-download-pic.jpg");
+  background-attachment: fixed;
+  min-height: 100vh;
+  min-width: 100%;
+  opacity: 50%;
+  z-index: -1;
+}
+
 .a {
-  margin-top: 50px;
+  margin-top: -170px;
   height: 100px;
   width: 100px;
   background: red;
-  z-index: 1;
+
 }
 </style>

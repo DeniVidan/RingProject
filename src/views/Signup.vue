@@ -156,7 +156,7 @@
                                     <input type="button" @click="verifyNumber()" name="verify" class="action-button" value="Verify">
                                 </div>
                                  <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                 <input type="button" :disabled="!verified" :class="{disabled: !verified}" name="next" class="next action-button" value="Next Step" />
+                                 <input @click="signup()" type="button" :disabled="!verified" :class="{disabled: !verified}" name="next" class="next action-button" value="Next Step" />
                             </fieldset>
                             
                             <fieldset>
@@ -184,6 +184,7 @@
 
 <script scoped>
 
+import axios from 'axios';
 
 export default {
   name: "Signup",
@@ -200,8 +201,20 @@ export default {
     }
   },
   methods : {
-    verifyNumber(){
-      //this.verified = true;
+    async signup(){
+      let userInfo = {
+        email: this.email,
+        username: this.username,
+        password: this.password,
+        phone: this.phone
+      }
+      let res = await axios.post('http://localhost:3000/api/signup',{userInfo})
+      console.log(res);
+    },
+    async verifyNumber(){
+      let res = await axios.get(`http://localhost:3000/api/verify?number=${"0958783923"}`);
+      console.log(res.data)
+      this.verified = res.data;
     },
     fieldRequired(){
       let button = document.getElementById("cpsw");
