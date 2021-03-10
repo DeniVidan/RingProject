@@ -212,8 +212,8 @@ export default {
       console.log(res);
     },
     async verifyNumber(){
-      let res = await axios.get(`http://localhost:3000/api/verify?number=${"0958783923"}`);
-      console.log(res.data)
+      let res = await axios.get(`http://localhost:3000/api/verify?number=${this.phone}`);
+      console.log(res.data);
       this.verified = res.data;
     },
     fieldRequired(){
@@ -468,7 +468,8 @@ html {
 }
 
 #grad1 {
-
+  background-color: beige;
+  min-height: 88.5vh;
 }
 
 #msform {

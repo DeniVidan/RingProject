@@ -60,11 +60,13 @@
 }
 .about {
   display: flex;
-  margin-top: 80px;
+  padding-top: 80px;
+  padding-bottom: 330px;
   justify-content: center;
   align-items: center;
   background-color: beige;
   overflow: hidden;
+  height: 100%;
 }
 .row {
   justify-content: center;
@@ -114,7 +116,11 @@ a.button{
   background-color: #f9c0c7;
   padding: 10px;
 }
-
+@media screen and (max-width: 1410px) {
+  .about{
+    padding-bottom: 140px;
+  }
+}
 @media screen and (max-width: 991px) {
   .row {
     width: 100%;
@@ -130,6 +136,9 @@ a.button{
   }
   .row{
     margin-bottom: 120px;
+  }
+  .about{
+    padding-bottom: 0px;
   }
 }
 </style>

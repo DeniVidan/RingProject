@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" style="min-height: 88.5vh; background-color:beige;">
     
       <div class="user_card">
         <div class="row">

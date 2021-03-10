@@ -1,7 +1,27 @@
 <template>
-  <div>
-    <img class="bg-img" src="" alt="">
-    <div class="content"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, vitae quo dolore quisquam neque enim obcaecati ducimus magnam officiis quos numquam ipsum, veritatis commodi! Dolorum dolorem, sapiente provident unde, mollitia non qui eius vitae pariatur praesentium dolor natus reprehenderit eos incidunt perferendis sit quod illo sunt omnis nulla a deleniti. Vel, fugiat eos alias, molestias corrupti quisquam voluptates architecto, incidunt aut libero odit perspiciatis vero laudantium enim facilis eveniet. Eos, itaque! Architecto laudantium animi, ea soluta, obcaecati similique quidem ut quae necessitatibus perspiciatis esse tenetur veniam, nisi optio non error nam dolor voluptate debitis reiciendis deserunt suscipit. Quod laboriosam consequatur non eos placeat qui. Iure quasi optio quod amet molestias expedita reprehenderit eligendi blanditiis deleniti pariatur? Facilis voluptatum, quas unde aspernatur consequuntur perferendis ullam nisi dolore autem harum doloribus iste iure neque obcaecati sed provident accusantium, deleniti, sit similique consectetur voluptates quia adipisci doloremque corrupti? Excepturi perferendis recusandae eligendi voluptatem.</p></div>
+  <div class="container-flex">
+    <img class="bg-img" src="" alt="" />
+    <div class="content">
+        <div class="row">
+          <div class="col-md-6 row-img">
+            <img src="@/assets/nogomet slika.jpg" alt=""/>
+          </div>
+          <div class="col-md-6 row-content">
+            <h3>measure correctly for 100% efficiency</h3>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 row-img">
+            <img src="@/assets/nogomet slika.jpg" alt=""/>
+          </div>
+          <div class="col-md-6" style="align-self: center;">
+            <h3>measure correctly for 100% efficiency</h3>
+
+          </div>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -14,18 +34,40 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.bg-img{
-  position: relative;
-  background: url("https://i.pinimg.com/originals/6d/22/12/6d22129e5b65ee03048e97060b8b3db0.jpg");
-  background-attachment: fixed !important;
-  background-repeat: no-repeat;
-  background-size: cover !important;
-  min-width: 100%;
-  min-height: 100vh;
-  opacity: 0.5;
+#app {
 }
-.content{
-  margin-top: -900px;
+.container-flex {
+  margin: 0px !important;
+  padding: 0px !important;
 }
 
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 100px;
+  z-index: 1;
+  overflow: hidden;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0px 0px;
+  margin-bottom: 40px;
+  background-color: rgba(245, 245, 220, 0.638);
+  border-radius: 20px;
+  width: 70%;
+  z-index: 1;
+}
+img{
+  width: 100%;
+  border-radius: 20px;
+}
+.row-img{
+ padding: 0px;
+}
+.row-content{
+  align-self: center;
+}
 </style>

@@ -6,6 +6,7 @@
     </div>
     <div class="content">
         <MeasureFinger v-if=" !find"/>
+        <img class="bg-img" src="" alt="">
     </div>
   </div>
 </template>
@@ -44,48 +45,72 @@ export default {
 
 
 <style scoped>
+.pick{
+  z-index: 2 !important;
+}
+.bg-img{
+  position: fixed;
+  top: 198px !important;
+  left: 0 !important;
+  background: url("https://wallpapercave.com/wp/wp2570965.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100vh;
+  opacity: 0.5;
+  z-index: -1;
+}
 .flex-container {
   margin: 0;
   padding: 0px;
   box-sizing: border-box;
+
 }
 .header {
+  width: 100%;
+  position: fixed;
   padding: 0px 0px;
+  z-index: 2;
 }
 h1 {
   font-family: "Dancing Script", cursive;
   margin: 0px 0px;
 }
+.content{
+  min-height: 100vh;
+
+}
 .active{
     width: 100% !important;
-    background: #f9c0c7a8 !important;
+    background: #f9c0c7 !important;
 }
 .active:hover{
-    background: #f9c0c759 !important;
+    background: #f9c0c76d !important;
 }
 .active2{
     width: 100% !important;
     background: #b5faf4 !important;
 }
 .active2:hover{
-    background: #b5faf47b !important;
+    background: #b5faf4aa !important;
 }
 .woman{
     width: 50%;
     display:inline-block;
-    background: #f9c0c759;
+    background: #f9c0c7a6;
     padding: 20px 0px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
 .woman:hover{
-    background: #f9c0c7a8;
+    background: #f9c0c7;
 }
 
 .man{
     width: 50%;
     display: inline-block;
-    background: #b5faf47b; 
+    background: #b5faf4aa; 
     padding: 20px 0px;
     transition: all 0.3s ease-in-out !important;
     cursor: pointer;

@@ -125,9 +125,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: beige;
   z-index: -2;
-  min-height: 100vh;
+  min-height: 100%;
 
 }
 
