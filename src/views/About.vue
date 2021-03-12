@@ -26,7 +26,7 @@
       <div class="col-md-4 linija">
         <div class="title">NOTICE</div>
         <div class="content">
-          Anyone can access your ring size date. In any time you can update or
+          Anyone can access your ring size data. In any time you can update or
           remove data. Works only if it is measured properly. Can't count 100%
           on this
         </div>

@@ -3,7 +3,8 @@
     
       <div class="user_card">
         <div class="row">
-        <div class="col-sm-6" style="margin-top: 95px; z-index: 1;">
+          <h2 class="collapse_text">Login!</h2>
+        <div class="col-sm-6 login_content">
         <div class="d-flex justify-content-center">
           <div class="brand_logo_container">
             <img
@@ -112,7 +113,7 @@ html {
 }
 .user_card {
   height: 400px;
-  width: auto;
+  width: 700px;
   margin-top: 200px;
   margin-bottom: 0px;
   background: transparent;
@@ -182,8 +183,13 @@ html {
     background-color: transparent;
     border: 1px solid goldenrod;
 }
-
-
+.login_content{
+   margin-top: 95px; 
+   z-index: 1;
+}
+.collapse_text{
+  font-family: 'Ubuntu', sans-serif;
+}
 
 @media screen and (max-width: 575px) {
   .user_card{
@@ -198,6 +204,22 @@ html {
       margin-top: -130px;
       margin-left: -150px;
       opacity: 70%;
+  }
+  .brand_logo_container{
+    top: 0px !important;
+    float: left;
+  }
+  .form_container{
+    margin-top: 50px;
+  }
+  .collapse_text{
+    margin-top: 300px;
+  }
+  .login_content{
+    margin-top: 0px;
+  }
+  h2{
+    margin: 0;
   }
 }
 </style>

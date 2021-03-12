@@ -83,40 +83,40 @@ h1 {
 }
 .active{
     width: 100% !important;
-    background: #f9c0c7 !important;
+    background: #e0808b !important;
 }
 .active:hover{
-    background: #f9c0c76d !important;
+    background: #f9c0c7 !important;
 }
 .active2{
     width: 100% !important;
-    background: #b5faf4 !important;
+    background: #76e0d7 !important;
 }
 .active2:hover{
-    background: #b5faf4aa !important;
+    background: #b5faf4 !important;
 }
 .woman{
     width: 50%;
     display:inline-block;
-    background: #f9c0c7a6;
+    background: #f9c0c7;
     padding: 20px 0px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
 .woman:hover{
-    background: #f9c0c7;
+    background: #e0808b;
 }
 
 .man{
     width: 50%;
     display: inline-block;
-    background: #b5faf4aa; 
+    background: #b5faf4; 
     padding: 20px 0px;
     transition: all 0.3s ease-in-out !important;
     cursor: pointer;
 }
 .man:hover{
-    background: #b5faf4;
+    background: #76e0d7;
 }
 
 

@@ -124,7 +124,7 @@
     <div class="row justify-content-center mt-0" style="background: beige;">
         <div class="col-11 col-sm-9 col-md-8 col-lg-6 text-center p-0 mt-3 mb-2 wrap">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3" style="background: beige;">
-                <h2>Sign Up</h2>
+                <h2 class="signup_text">Sign Up</h2>
                 <div class="row">
                     <div class="col-md-12 mx-0">
                         <form id="msform">
@@ -414,7 +414,6 @@ html {
 }
 
 .signup_text{
-  display: none;
   font-family: 'Ubuntu', sans-serif;
 }
 form{

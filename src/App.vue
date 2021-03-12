@@ -28,7 +28,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent" aria-expanded="false">
-          <hr
+          <!-- <hr
             style="
               width: 60%;
               text-align: center;
@@ -36,7 +36,7 @@
               margin: 15px auto auto auto;
               color: black;
             "
-          />
+          /> -->
           <ul
             class="navbar-nav mb-2 mb-lg-0 mr-0"
             style="width: 100%; justify-content: flex-end"
