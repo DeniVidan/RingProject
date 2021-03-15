@@ -145,18 +145,18 @@
                                     <input v-model="phone" type="phone" placeholder="Phone *" style="margin-top: 20px !important;" required/>
                                     <p style="color: red; float: right;">* field is required</p>
                                 </div>
-                                <input type="button" name="next" class="next action-button" :disabled="!fieldRequired()" :class="{disabled: !fieldRequired()}" value="Next Step" />
+                                <input @click="signup()" type="button" name="next" class="next action-button" :disabled="!fieldRequired()" :class="{disabled: !fieldRequired()}" value="Next Step" />
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">Verification</h2>
-                                    <p>Verification number is sent to your phone</p>
+                                    <p>Verification number is sent to your emial</p>
                                     <h3><b>{{phone}}</b></h3><br>
-                                    <input type="text" v-model="verification" placeholder="Verification number" />
-                                    <input type="button" @click="verifyNumber()" name="verify" class="action-button" value="Verify">
+                                    <input type="text" v-model="verification" placeholder="Verification code" />
+                                    <input type="button" @click="verifyCode()" name="verify" class="action-button" value="Verify">
                                 </div>
                                  <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                 <input @click="signup()" type="button" :disabled="!verified" :class="{disabled: !verified}" name="next" class="next action-button" value="Next Step" />
+                                 <input type="button" :disabled="!verified" :class="{disabled: !verified}" name="next" class="next action-button" value="Next Step" />
                             </fieldset>
                             
                             <fieldset>
@@ -208,13 +208,16 @@ export default {
         password: this.password,
         phone: this.phone
       }
-      let res = await axios.post('http://localhost:3000/api/signup',{userInfo})
+      let res = await axios.post('http://localhost:3000/api/signup',userInfo)
       console.log(res);
     },
-    async verifyNumber(){
-      let res = await axios.get(`http://localhost:3000/api/verify?number=${this.phone}`);
-      console.log(res.data);
-      this.verified = res.data;
+    async verifyCode(){
+      let res = await axios.post(`http://localhost:3000/api/verify`,{token: this.verification});
+      console.log(res.status);
+      if(res.status === 200){
+        this.verification = "Email verified successfully"
+        this.verified = true;
+      }
     },
     fieldRequired(){
       let button = document.getElementById("cpsw");
