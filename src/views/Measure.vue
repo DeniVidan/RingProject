@@ -50,7 +50,7 @@ export default {
 }
 .bg-img{
   position: fixed;
-  top: 198px !important;
+  top: 0px !important;
   left: 0 !important;
   background: url("https://wallpapercave.com/wp/wp2570965.jpg");
   background-attachment: fixed;
@@ -79,6 +79,8 @@ h1 {
 }
 .content{
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
 
 }
 .active{

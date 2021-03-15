@@ -1,8 +1,8 @@
 <template>
-  <div class="container-flex">
-    <img class="bg-img" src="" alt="" />
+<!--   <div class="container-flex">
+
     <div class="content">
-        <div class="row">
+        <div class="row" style="margin-top: 170px;">
           <div class="col-md-6 row-img">
             <img src="@/assets/nogomet slika.jpg" alt=""/>
           </div>
@@ -22,13 +22,31 @@
           </div>
         </div>
     </div>
-  </div>
+  </div>  -->
+
+  <carousel :touchDrag="true" :per-page="1" class="content" style="width: 70%">
+  <slide>
+    <img src="https://i.pinimg.com/originals/8e/61/ff/8e61ff28302b6fef1057d1b5afb52d3f.png" alt="">
+  </slide>
+  <slide>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Reversed_Earth_map_1000x500.jpg" alt="">
+  </slide>
+</carousel>
+
+
+  
 </template>
 
 <script>
+import { Carousel, Slide } from 'vue-carousel';
+
 export default {
   name: "MeasureFinger",
   props: {},
+  components: {
+    Carousel,
+    Slide
+  }
 };
 </script>
 
@@ -45,7 +63,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 100px;
   z-index: 1;
   overflow: hidden;
 }
@@ -62,12 +79,37 @@ export default {
 }
 img{
   width: 100%;
-  border-radius: 20px;
 }
 .row-img{
  padding: 0px;
 }
 .row-content{
   align-self: center;
+}
+@media screen and (max-width: 575px) {
+  .row{
+    width: 100% !important;
+  }
+}
+</style>
+
+
+
+<style> /* not scoped */
+
+.VueCarousel-wrapper{
+  border-radius: 20px;
+}
+.VueCarousel-dot-container[data-v-438fd353]{
+  margin-top: -100px !important;
+  z-index: 1;
+}
+@media screen and (max-width: 575px) {
+  .VueCarousel-wrapper{
+  border-radius: 0px;
+  }
+  .VueCarousel{
+    width: 100% !important;
+  }
 }
 </style>
