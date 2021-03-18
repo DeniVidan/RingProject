@@ -31,6 +31,12 @@
   <slide>
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Reversed_Earth_map_1000x500.jpg" alt="">
   </slide>
+    <slide>
+    <img src="https://i.pinimg.com/originals/8e/61/ff/8e61ff28302b6fef1057d1b5afb52d3f.png" alt="">
+  </slide>
+   <slide>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Reversed_Earth_map_1000x500.jpg" alt="">
+  </slide>
 </carousel>
 
 
@@ -52,8 +58,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#app {
-}
+
 .container-flex {
   margin: 0px !important;
   padding: 0px !important;

@@ -37,13 +37,16 @@
       <!-- Copyright -->
       <div class="row1">
 
-        <div class="col-md-5" style="justify-content:center; vertical-align:center;">
+        <!-- <div class="col-md-5" style="justify-content:center; vertical-align:center;">
           If you want to get started ...
         </div>
         <div class="col-md-5" style="justify-content:center;">
           <a class="button" href="/login">
-            PRESS THIS BUTTON
+            <h4>SIGN UP</h4>
           </a>
+        </div> -->
+        <div class="col-md-12">
+          If you want to get started <a href="/login" style="font-size: 20px;">SIGN UP</a> !
         </div>
 
 
@@ -60,13 +63,14 @@
 }
 .about {
   display: flex;
-  padding-top: 80px;
-  padding-bottom: 330px;
+/*   padding-top: 80px;
+  padding-bottom: 330px; */
+  margin-top: -60px;
   justify-content: center;
   align-items: center;
   background-color: beige;
   overflow: hidden;
-  height: 100%;
+  min-height: 88vh;
 }
 .row {
   justify-content: center;
@@ -108,17 +112,11 @@ footer{
   color: #daa520;
 }
 a.button{
-  color: #31312c;
   text-decoration: none;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  box-shadow: 0px 0px 6px 0px white !important;
-  background-color: #f9c0c7;
-  padding: 10px;
 }
 @media screen and (max-width: 1410px) {
-  .about{
-    padding-bottom: 140px;
+  .row{
+    width: 80%;
   }
 }
 @media screen and (max-width: 991px) {
@@ -136,9 +134,18 @@ a.button{
   }
   .row{
     margin-bottom: 120px;
+    width: 100%;
   }
   .about{
     padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  footer{
+    height: 70px;
+  }
+  .row1{
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 </style>
