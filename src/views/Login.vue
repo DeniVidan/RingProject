@@ -19,24 +19,23 @@
           <form>
             <div class="input-group mb-3">
               <div class="input-group-append">
-                <span class="input-group-text"
-                  ><i class="fas fa-phone">&nbsp; / &nbsp;<i class="fas fa-envelope"></i></i
-                ></span>
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
               <input
+                v-model="username"
                 type="text"
                 name=""
                 class="form-control input_user"
                 value=""
-                placeholder="Phone / E-mail"
+                placeholder="Username"
               />
-            
             </div>
             <div class="input-group mb-2">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
               <input
+                v-model="password"
                 type="password"
                 name=""
                 class="form-control input_pass"
@@ -90,6 +89,12 @@
 
 export default {
   name: "Login",
+  data(){
+    return {
+      username: "",
+      password: ""
+    }
+  },
   components: {},
 };
 </script>

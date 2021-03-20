@@ -143,15 +143,16 @@
                                     <input id="cpsw" v-model="cpassword" type="password" placeholder="Confirm Password *"/>
                                     <p style="color: red;  margin-left: 0px; font-size: 14px;" v-if="passwordNotMatching">Passwords do not match</p>
                                     <input v-model="phone" type="phone" placeholder="Phone *" style="margin-top: 20px !important;" required/>
-                                    <p style="color: red; float: right;">* field is required</p>
+                                    <p style=" float: right;">* field is required</p>
                                 </div>
-                                <input @click="signup()" type="button" name="next" class="next action-button" :disabled="!fieldRequired()" :class="{disabled: !fieldRequired()}" value="Next Step" />
+                                <div class="WarningMsg" style="display: none"></div>
+                                <input type="button" name="next" class="next action-button" :disabled="!fieldRequired()" :class="{disabled: !fieldRequired()}" value="Signup" />
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">Verification</h2>
-                                    <p>Verification number is sent to your emial</p>
-                                    <h3><b>{{phone}}</b></h3><br>
+                                    <p>Verification number is sent to your email</p>
+                                    <h4><b>{{email}}</b></h4><br>
                                     <input type="text" v-model="verification" placeholder="Verification code" />
                                     <input type="button" @click="verifyCode()" name="verify" class="action-button" value="Verify">
                                 </div>
@@ -208,8 +209,15 @@ export default {
         password: this.password,
         phone: this.phone
       }
-      let res = await axios.post('http://localhost:3000/api/signup',userInfo)
-      console.log(res);
+
+      try{
+        var res = await axios.post('http://localhost:3000/api/signup',userInfo);
+        return res;
+      }catch(error){
+        return error.response;
+      }
+      
+      
     },
     async verifyCode(){
       let res = await axios.post(`http://localhost:3000/api/verify`,{token: this.verification});
@@ -225,7 +233,6 @@ export default {
         if(this.password != this.cpassword && this.password != "" && this.cpassword != ""){
           this.passwordNotMatching = true;
           button.style = "border-bottom: 2px solid red;"
-          console.log(button);
           return false;
         }else{
           button.style = "border-bottom: 1px solid #ccc;"
@@ -246,8 +253,15 @@ $(document).ready(function(){
   var current_fs, next_fs, previous_fs; //fieldsets
   var opacity;
 
-  $(".next").click(function(){
-
+  $(".next").click(async function(){
+  if(this.value == "Signup" ){
+    var res = await $('#grad1')[0].__vue__.signup();
+    if(res.status == 400){
+      $('.WarningMsg')[0].innerText = "User already exists"
+      $('.WarningMsg')[0].style.display = "block"
+      return
+    }
+  }
   current_fs = $(this).parent();
   next_fs = $(this).parent().next();
 
@@ -313,11 +327,12 @@ $(document).ready(function(){
 
 
 <style scoped>
+
+.WarningMsg{
+  color: red;
+}
 .disabled {
   background: #31312c63 !important;
-}
-h2, h3, p {
-  margin-left: 10px;
 }
 
 .d-flex{
