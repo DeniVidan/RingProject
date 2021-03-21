@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { checkSession } from '../Services/service.auth'
 import Login from '../views/Login.vue'
 import Gallery from '../views/Gallery.vue'
 Vue.use(VueRouter)
@@ -8,16 +7,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    beforeEnter: async (to, from, next) => {
-        let log = await checkSession();
-        console.log(log)
-        if (to.name !== 'Login' && !log){
-          console.log('to login')
-          next({ name: 'Login' })
-        }else{
-          next();
-        } 
-    }
+    redirect: '/about'
   },
   {
     path: '/about',

@@ -86,6 +86,7 @@
 
 <script scoped>
 // @ is an alias to /src
+import store from '@/store.js'
 const axios = require('axios');
 export default {
   name: "Login",
@@ -102,6 +103,7 @@ export default {
       localStorage.setItem("email", res.data.email);
       localStorage.setItem("phone", res.data.phone);
       localStorage.setItem("session", res.data.jwt);
+      store.loggedIn = true
       this.$router.push('/')
     }
   },

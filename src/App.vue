@@ -82,7 +82,7 @@
             class="navbar-nav mb-2 mb-lg-0 mr-0"
             style="width: 100%; justify-content: flex-end"
           >
-            <li class="nav-item">
+            <li class="nav-item" v-if='isLoggedIn()'>
               <router-link
                 class="nav-link col"
                 class-active="active"
@@ -94,7 +94,7 @@
               ></router-link>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" v-if="!isLoggedIn()">
               <router-link
                 class="nav-link col"
                 class-active="active"
@@ -105,6 +105,15 @@
                 ></i
               ></router-link>
             </li>
+            <li class="nav-item" v-if="loggedIn" @click="logout()">
+              <router-link
+                class="nav-link col"
+                class-active="active"
+                to="/login"
+                exact
+                ><!--<img src="@/assets/log-in.svg" alt="">--><i class="fas fa-sign-out-alt"></i></router-link>
+            </li>
+            
           </ul>
         </div>
       </div>
@@ -114,6 +123,32 @@
     <router-view />
   </div>
 </template>
+
+<script>
+import store from '@/store.js'
+
+export default {
+  data(){
+    return{
+      loggedIn : store.loggedIn
+    }
+  },
+  watch:{
+    loggedIn(newItem){
+      console.log(newItem)
+    }
+  },
+  methods:{
+    isLoggedIn(){
+      return localStorage.getItem("session")?true:false;
+    },
+    logout(){
+      localStorage.clear();
+      store.loggedIn = false
+    }
+  }
+}
+</script>
 
 <style scoped>
 * {
