@@ -1,12 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import { checkSession } from '../Services/service.auth'
+import Login from '../views/Login.vue'
+import Gallery from '../views/Gallery.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    redirect: "/about"
+    beforeEnter: async (to, from, next) => {
+        let log = await checkSession();
+        console.log(log)
+        if (to.name !== 'Login' && !log){
+          console.log('to login')
+          next({ name: 'Login' })
+        }else{
+          next();
+        } 
+    }
   },
   {
     path: '/about',
@@ -22,15 +33,13 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "gallery" */ '../views/Gallery.vue')
+    component: Gallery
   },
   {
     path: '/login',
     name: 'Login',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+
+    component: Login
   },
   {
     path: '/signup',

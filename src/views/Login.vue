@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="d-flex justify-content-center mt-3 login_container">
-              <button type="button" name="button" class="btn login_btn">
+              <button @click="login()" type="button" name="button" class="btn login_btn">
                 Login
               </button>
             </div>
@@ -86,13 +86,23 @@
 
 <script scoped>
 // @ is an alias to /src
-
+const axios = require('axios');
 export default {
   name: "Login",
   data(){
     return {
       username: "",
       password: ""
+    }
+  },
+  methods: {
+    async login(){
+      let res = await axios.post('http://localhost:3000/api/login',{username: this.username, password: this.password});
+      localStorage.setItem("username", res.data.username);
+      localStorage.setItem("email", res.data.email);
+      localStorage.setItem("phone", res.data.phone);
+      localStorage.setItem("session", res.data.jwt);
+      this.$router.push('/')
     }
   },
   components: {},
