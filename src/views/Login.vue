@@ -22,7 +22,7 @@
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
               <input
-                v-model="username"
+                v-model="User.username"
                 type="text"
                 name=""
                 class="form-control input_user"
@@ -35,7 +35,7 @@
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
               <input
-                v-model="password"
+                v-model="User.password"
                 type="password"
                 name=""
                 class="form-control input_pass"
@@ -86,25 +86,25 @@
 
 <script scoped>
 // @ is an alias to /src
-import store from '@/store.js'
-const axios = require('axios');
 export default {
   name: "Login",
   data(){
     return {
-      username: "",
-      password: ""
+      User:{
+        username: "",
+        password: ""
+      }
     }
   },
   methods: {
     async login(){
-      let res = await axios.post('http://localhost:3000/api/login',{username: this.username, password: this.password});
-      localStorage.setItem("username", res.data.username);
-      localStorage.setItem("email", res.data.email);
-      localStorage.setItem("phone", res.data.phone);
-      localStorage.setItem("session", res.data.jwt);
-      store.loggedIn = true
-      this.$router.push('/')
+        this.$store.dispatch('loginUser', this.User)
+        .then(()=> {
+          this.$router.push({name: 'Gallery'});
+        })
+        .catch(error =>{
+          console.log('Login failed', error);
+        });
     }
   },
   components: {},

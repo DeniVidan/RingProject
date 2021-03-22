@@ -82,11 +82,19 @@
             class="navbar-nav mb-2 mb-lg-0 mr-0"
             style="width: 100%; justify-content: flex-end"
           >
-            <li class="nav-item" v-if='isLoggedIn()'>
+            <li class="nav-item" v-if='isLoggedIn'>
               <router-link
                 class="nav-link col"
                 class-active="active"
-                to="/aa"
+                to="/profile"
+                exact
+                >{{getUser.username}}</router-link>
+            </li>
+            <li class="nav-item" v-if='isLoggedIn'>
+              <router-link
+                class="nav-link col"
+                class-active="active"
+                to="/profile"
                 exact
                 ><!--<img src="@/assets/user.svg" alt="">--><i
                   class="far fa-user"
@@ -94,7 +102,7 @@
               ></router-link>
             </li>
 
-            <li class="nav-item" v-if="!isLoggedIn()">
+            <li class="nav-item" v-if="!isLoggedIn">
               <router-link
                 class="nav-link col"
                 class-active="active"
@@ -105,7 +113,7 @@
                 ></i
               ></router-link>
             </li>
-            <li class="nav-item" v-if="loggedIn" @click="logout()">
+            <li class="nav-item" v-if="isLoggedIn" @click="logout()">
               <router-link
                 class="nav-link col"
                 class-active="active"
@@ -125,26 +133,30 @@
 </template>
 
 <script>
-import store from '@/store.js'
 
 export default {
   data(){
     return{
-      loggedIn : store.loggedIn
     }
   },
-  watch:{
-    loggedIn(newItem){
-      console.log(newItem)
+  computed: {
+    isLoggedIn(){
+      return this.$store.getters.isLoggedIn
+    },
+    getUser(){
+      return this.$store.getters.getUser
     }
   },
   methods:{
-    isLoggedIn(){
-      return localStorage.getItem("session")?true:false;
-    },
     logout(){
-      localStorage.clear();
-      store.loggedIn = false
+      this.$store.dispatch('logoutUser')
+      .then((result) => {
+        console.log(result);
+        this.$router.push({name: 'Login'})
+      }).catch((err) => {
+        console.log(err);
+        this.$router.push({name: 'Login'})
+      });
     }
   }
 }
